@@ -1,9 +1,15 @@
 
 plot_golden_angle_dist <- function(
-    canvas_w = 360, canvas_h = 150, 
-    leave_size = 0.1, n_elements = 100, displacement = 0.02,
-    apply_x_spread = T, apply_y_spread = T,
-    draw_mode = 'leaves', save_file = F, file_name_format = NULL) {
+    canvas_w = 360,
+    canvas_h = 150,
+    leave_size = 0.1,
+    n_elements = 100,
+    displacement = 0.02,
+    apply_x_spread = T,
+    apply_y_spread = T,
+    draw_mode = 'leaves',
+    save_file = F,
+    file_name_format = NULL) {
     
     # If the outcomes are not saved, there is no use in plotting intermediate results.
     if (!save_file) {
@@ -59,7 +65,7 @@ plot_golden_angle_dist <- function(
             # Plot (and save) the data:
             if (save_file) {
                 png(filename = sprintf(file_name_format, index, n_elem, displace),
-                    width = 600, height = 350, units = "px", bg = "transparent")
+                    width = 600, height = 350, units = "px")
             }
             # "par(xpd = TRUE)" Allows plotting outside of plotting region:
             
@@ -80,9 +86,9 @@ plot_golden_angle_dist <- function(
             
             axis(side = 1, at = seq(0, 360, by = 90), labels = T)
             
-            # Draw leaves at co?rdinates:
+            # Draw leaves at coordinates:
             if (draw_mode == 'leaves') {
-                # The leave is drawn on paper and below, x and y, represent it's digital equivalent :) no magic here
+                # The leave is drawn on paper and the x and y below represent it's digital representation :) no magic here
                 # The "scale" value makes the 'leave_size' (actually the length) relative to the canvas_w value.
                 # So in short, leave_size is the ratio of canvas with.
                 scale <- canvas_w * leave_size / 100
